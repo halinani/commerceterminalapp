@@ -1,10 +1,10 @@
 import 'product.dart';
 
-class Item {
+class Items {
   final Product product;
   final int quantity;
   final int price;
-  Item({
+  Items({
     required this.product,
     required this.quantity,
     required this.price,
