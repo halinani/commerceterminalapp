@@ -26,12 +26,17 @@ void main(List<String> arguments) {
 // the while loop..(The commerce app funtion)
 
   while (true) {
-    print('V to View cart\n A to add item\n C to checkout\n Q to quit\n\n\n\n');
+    print(
+        'V to View cart\nL to See products in-Stock\nA to add item\nC to checkout\nQ to quit\n\n');
     final String line = stdin.readLineSync().toString().toLowerCase();
 
 // v is for viewing the cart
     if (line == 'v') {
       viewCart();
+      continue;
+    } else if (line == 'l') {
+// l is for seeing products in stock
+      viewList();
       continue;
     } else if (line == 'a') {
 //  a is for adding an item to the cart..
@@ -52,9 +57,23 @@ void main(List<String> arguments) {
 }
 
 void viewCart() {
+  if (cart.cart.isNotEmpty) {
+    int total = 0;
+    for (Items item in cart.cart) {
+      print('${item.product.name} ${item.price}');
+      total += item.price;
+    }
+    print('Total: \$$total');
+  } else {
+    print('\nCart is empty \n');
+  }
+}
+
+void viewList() {
   for (var element in listp) {
     print('${element.name} \$${element.price}');
   }
+  print('\n\n');
 }
 
 void addingItemtoCart() {
