@@ -3,10 +3,10 @@ import 'item.dart';
 
 class Cart {
   final List<Items> cart;
-  final int total;
 
   Cart({
     required this.cart,
-    required this.total,
   });
+
+  // int get total => cart.reduce((value, element) => value + element.price);
 }
